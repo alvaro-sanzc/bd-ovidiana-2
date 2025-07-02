@@ -22,12 +22,12 @@
 - Python 3.x (para scripts de automatización)
 - PostgreSQL o MySQL (para cargar `data.sql`)
 - RDF toolkit o librerías como `rdflib` para procesamiento RDF
-- Docker
+- Docker instalado
 ## Uso
 
 1. Cargar scripts sql a RDF
    py .\comandos_scripts.py
-2. Docker
+2. Docker - IMPORTANTE:
    cd .\prototipo_web\
    docker compose up --build
    Accede a http://localhost:5173/
