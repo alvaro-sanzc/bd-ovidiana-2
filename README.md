@@ -29,5 +29,6 @@
    py .\comandos_scripts.py
 2. Docker - IMPORTANTE:
    cd .\prototipo_web\
+   docker-compose down -v 
    docker compose up --build
    Accede a http://localhost:5173/
