@@ -1,0 +1,783 @@
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ex: <http://bdovidiana.es/> .
+@prefix bdo: <http://bdovidiana.es/ontology/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#BibliotecaTriplesMap>
+  rr:logicalTable [ rr:tableName "biblioteca" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/biblioteca/{BibliotecaPK}" ; rr:class <http://bdovidiana.es/ontology/Biblioteca> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasBibliotecapk> ;
+    rr:objectMap [ rr:column "BibliotecaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasBiblioteca> ;
+    rr:objectMap [ rr:column "Biblioteca" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToComunidad> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ComunidadTriplesMap> ;
+      rr:joinCondition [ rr:child "ComunidadFK" ; rr:parent "ComunidadPK" ]
+    ] ;
+  ] ;
+.
+
+<#CaracteristicasedicionTriplesMap>
+  rr:logicalTable [ rr:tableName "caracteristicasedicion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/caracteristicasedicion/{CaracteristicasEdicionPK}" ; rr:class <http://bdovidiana.es/ontology/Caracteristicasedicion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCaracteristicasedicionpk> ;
+    rr:objectMap [ rr:column "CaracteristicasEdicionPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTextotraduccion> ;
+    rr:objectMap [ rr:column "TextoTraduccion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentario> ;
+    rr:objectMap [ rr:column "Comentario" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustraciones> ;
+    rr:objectMap [ rr:column "Ilustraciones" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEstructuradisposicion> ;
+    rr:objectMap [ rr:column "EstructuraDisposicion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+.
+
+<#Categorias_idTriplesMap>
+  rr:logicalTable [ rr:tableName "categorias_id" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/categorias_id/{ID}" ; rr:class <http://bdovidiana.es/ontology/Categorias_id> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasId> ;
+    rr:objectMap [ rr:column "ID" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCategorias> ;
+    rr:objectMap [ rr:column "CATEGORIAS" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNada> ;
+    rr:objectMap [ rr:column "NADA" ] ;
+  ] ;
+.
+
+<#CiudadTriplesMap>
+  rr:logicalTable [ rr:tableName "ciudad" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ciudad/{CiudadPK}" ; rr:class <http://bdovidiana.es/ontology/Ciudad> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCiudadpk> ;
+    rr:objectMap [ rr:column "CiudadPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNombre> ;
+    rr:objectMap [ rr:column "Nombre" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasProvinciafk> ;
+    rr:objectMap [ rr:column "ProvinciaFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoord> ;
+    rr:objectMap [ rr:column "coord" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToProvincia> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ProvinciaTriplesMap> ;
+      rr:joinCondition [ rr:child "ProvinciaFK" ; rr:parent "ProvinciaPK" ]
+    ] ;
+  ] ;
+.
+
+<#ComentariocontenidoTriplesMap>
+  rr:logicalTable [ rr:tableName "comentariocontenido" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/comentariocontenido/{ComentarioContenidoPK}" ; rr:class <http://bdovidiana.es/ontology/Comentariocontenido> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentariocontenidopk> ;
+    rr:objectMap [ rr:column "ComentarioContenidoPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentariocontenido> ;
+    rr:objectMap [ rr:column "ComentarioContenido" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasContenidofk> ;
+    rr:objectMap [ rr:column "ContenidoFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEjemplarfk> ;
+    rr:objectMap [ rr:column "EjemplarFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEjemplar> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EjemplarTriplesMap> ;
+      rr:joinCondition [ rr:child "EjemplarFK" ; rr:parent "EjemplarPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToContenido> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ContenidoTriplesMap> ;
+      rr:joinCondition [ rr:child "ContenidoFK" ; rr:parent "ContenidoPK" ]
+    ] ;
+  ] ;
+.
+
+<#ComentarioilustracionTriplesMap>
+  rr:logicalTable [ rr:tableName "ComentarioIlustracion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ComentarioIlustracion/{ComentarioIlustracionPK}" ; rr:class <http://bdovidiana.es/ontology/Comentarioilustracion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentarioilustracionpk> ;
+    rr:objectMap [ rr:column "ComentarioIlustracionPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentarioilustracion> ;
+    rr:objectMap [ rr:column "ComentarioIlustracion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracionfk> ;
+    rr:objectMap [ rr:column "IlustracionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToIlustracion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#IlustracionTriplesMap> ;
+      rr:joinCondition [ rr:child "IlustracionFK" ; rr:parent "IlustracionPK" ]
+    ] ;
+  ] ;
+.
+
+<#ComentariotemaTriplesMap>
+  rr:logicalTable [ rr:tableName "comentariotema" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/comentariotema/{ComentarioTemaPK}" ; rr:class <http://bdovidiana.es/ontology/Comentariotema> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentariotemapk> ;
+    rr:objectMap [ rr:column "ComentarioTemaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComentariotema> ;
+    rr:objectMap [ rr:column "ComentarioTema" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEjemplarfk> ;
+    rr:objectMap [ rr:column "EjemplarFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTemafk> ;
+    rr:objectMap [ rr:column "TemaFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEjemplar> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EjemplarTriplesMap> ;
+      rr:joinCondition [ rr:child "EjemplarFK" ; rr:parent "EjemplarPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToTema> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#TemaTriplesMap> ;
+      rr:joinCondition [ rr:child "TemaFK" ; rr:parent "TemaPK" ]
+    ] ;
+  ] ;
+.
+
+<#ComunidadTriplesMap>
+  rr:logicalTable [ rr:tableName "comunidad" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/comunidad/{ComunidadPK}" ; rr:class <http://bdovidiana.es/ontology/Comunidad> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComunidadpk> ;
+    rr:objectMap [ rr:column "ComunidadPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNombre> ;
+    rr:objectMap [ rr:column "Nombre" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIcono> ;
+    rr:objectMap [ rr:column "Icono" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIconoini> ;
+    rr:objectMap [ rr:column "IconoIni" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasViaf> ;
+    rr:objectMap [ rr:column "viaf" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoord> ;
+    rr:objectMap [ rr:column "coord" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoordlat> ;
+    rr:objectMap [ rr:column "coordLat" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasOrden> ;
+    rr:objectMap [ rr:column "orden" ] ;
+  ] ;
+.
+
+<#ContenidoTriplesMap>
+  rr:logicalTable [ rr:tableName "contenido" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/contenido/{ContenidoPK}" ; rr:class <http://bdovidiana.es/ontology/Contenido> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasContenidopk> ;
+    rr:objectMap [ rr:column "ContenidoPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasContenido> ;
+    rr:objectMap [ rr:column "Contenido" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasPosicion> ;
+    rr:objectMap [ rr:column "Posicion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+.
+
+<#EdicionTriplesMap>
+  rr:logicalTable [ rr:tableName "edicion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/edicion/{EdicionPK}" ; rr:class <http://bdovidiana.es/ontology/Edicion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionpk> ;
+    rr:objectMap [ rr:column "EdicionPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTitulo> ;
+    rr:objectMap [ rr:column "Titulo" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasLugarpublicacionfk> ;
+    rr:objectMap [ rr:column "LugarPublicacionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToFecha> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#FechaTriplesMap> ;
+      rr:joinCondition [ rr:child "FechaFK" ; rr:parent "FechaPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToLugarpublicacion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#LugarpublicacionTriplesMap> ;
+      rr:joinCondition [ rr:child "LugarPublicacionFK" ; rr:parent "LugarPublicacionPK" ]
+    ] ;
+  ] ;
+.
+
+<#EjemplarTriplesMap>
+  rr:logicalTable [ rr:tableName "ejemplar" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ejemplar/{EjemplarPK}" ; rr:class <http://bdovidiana.es/ontology/Ejemplar> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEjemplarpk> ;
+    rr:objectMap [ rr:column "EjemplarPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCodigo> ;
+    rr:objectMap [ rr:column "Codigo" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasBibliotecafk> ;
+    rr:objectMap [ rr:column "BibliotecaFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToBiblioteca> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#BibliotecaTriplesMap> ;
+      rr:joinCondition [ rr:child "BibliotecaFK" ; rr:parent "BibliotecaPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+.
+
+<#EtiquetaTriplesMap>
+  rr:logicalTable [ rr:tableName "etiqueta" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/etiqueta/{EtiquetaPK}" ; rr:class <http://bdovidiana.es/ontology/Etiqueta> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEtiquetapk> ;
+    rr:objectMap [ rr:column "EtiquetaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTemafk> ;
+    rr:objectMap [ rr:column "TemaFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEtiqueta> ;
+    rr:objectMap [ rr:column "Etiqueta" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToTema> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#TemaTriplesMap> ;
+      rr:joinCondition [ rr:child "TemaFK" ; rr:parent "TemaPK" ]
+    ] ;
+  ] ;
+.
+
+<#FechaTriplesMap>
+  rr:logicalTable [ rr:tableName "fecha" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/fecha/{FechaPK}" ; rr:class <http://bdovidiana.es/ontology/Fecha> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasFechapk> ;
+    rr:objectMap [ rr:column "FechaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasFecha> ;
+    rr:objectMap [ rr:column "Fecha" ] ;
+  ] ;
+.
+
+<#IlustracionTriplesMap>
+  rr:logicalTable [ rr:tableName "ilustracion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ilustracion/{IlustracionPK}" ; rr:class <http://bdovidiana.es/ontology/Ilustracion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracionpk> ;
+    rr:objectMap [ rr:column "IlustracionPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracion> ;
+    rr:objectMap [ rr:column "Ilustracion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasPosicion> ;
+    rr:objectMap [ rr:column "Posicion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+.
+
+<#IlustracionejemplarTriplesMap>
+  rr:logicalTable [ rr:tableName "ilustracionejemplar" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ilustracionejemplar/{IlustracionEjemplarPK}" ; rr:class <http://bdovidiana.es/ontology/Ilustracionejemplar> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracionejemplarpk> ;
+    rr:objectMap [ rr:column "IlustracionEjemplarPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracionfk> ;
+    rr:objectMap [ rr:column "IlustracionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNombrearchivo> ;
+    rr:objectMap [ rr:column "NombreArchivo" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToIlustracion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#IlustracionTriplesMap> ;
+      rr:joinCondition [ rr:child "IlustracionFK" ; rr:parent "IlustracionPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEjemplar> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EjemplarTriplesMap> ;
+      rr:joinCondition [ rr:child "EjemplarFK" ; rr:parent "EjemplarPK" ]
+    ] ;
+  ] ;
+.
+
+<#IlustradorTriplesMap>
+  rr:logicalTable [ rr:tableName "ilustrador" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ilustrador/{IlustradorPK}" ; rr:class <http://bdovidiana.es/ontology/Ilustrador> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustradorpk> ;
+    rr:objectMap [ rr:column "IlustradorPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustrador> ;
+    rr:objectMap [ rr:column "Ilustrador" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasUrlilustrador> ;
+    rr:objectMap [ rr:column "URLIlustrador" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasViaf> ;
+    rr:objectMap [ rr:column "viaf" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+.
+
+<#IlustradoredicionTriplesMap>
+  rr:logicalTable [ rr:tableName "ilustradoredicion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/ilustradoredicion/{IlustradorFK}-{EdicionFK}" ; rr:class <http://bdovidiana.es/ontology/Ilustradoredicion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustradorfk> ;
+    rr:objectMap [ rr:column "IlustradorFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToIlustrador> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#IlustradorTriplesMap> ;
+      rr:joinCondition [ rr:child "IlustradorFK" ; rr:parent "IlustradorPK" ]
+    ] ;
+  ] ;
+.
+
+<#ImpresorTriplesMap>
+  rr:logicalTable [ rr:tableName "impresor" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/impresor/{ImpresorPK}" ; rr:class <http://bdovidiana.es/ontology/Impresor> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasImpresorpk> ;
+    rr:objectMap [ rr:column "ImpresorPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasImpresor> ;
+    rr:objectMap [ rr:column "Impresor" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasUrlimpresor> ;
+    rr:objectMap [ rr:column "URLImpresor" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasViaf> ;
+    rr:objectMap [ rr:column "viaf" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+.
+
+<#ImpresoredicionTriplesMap>
+  rr:logicalTable [ rr:tableName "impresoredicion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/impresoredicion/{ImpresorFK}-{EdicionFK}" ; rr:class <http://bdovidiana.es/ontology/Impresoredicion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasImpresorfk> ;
+    rr:objectMap [ rr:column "ImpresorFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToImpresor> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ImpresorTriplesMap> ;
+      rr:joinCondition [ rr:child "ImpresorFK" ; rr:parent "ImpresorPK" ]
+    ] ;
+  ] ;
+.
+
+<#LocalizacionciudadTriplesMap>
+  rr:logicalTable [ rr:tableName "localizacionciudad" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "_:blank_localizacionciudad" ; rr:class <http://bdovidiana.es/ontology/Localizacionciudad> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCiudad> ;
+    rr:objectMap [ rr:column "Ciudad" ] ;
+  ] ;
+.
+
+<#LugarpublicacionTriplesMap>
+  rr:logicalTable [ rr:tableName "lugarpublicacion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/lugarpublicacion/{LugarPublicacionPK}" ; rr:class <http://bdovidiana.es/ontology/Lugarpublicacion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasLugarpublicacionpk> ;
+    rr:objectMap [ rr:column "LugarPublicacionPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasLugar> ;
+    rr:objectMap [ rr:column "Lugar" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasGeonames> ;
+    rr:objectMap [ rr:column "geonames" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoorx> ;
+    rr:objectMap [ rr:column "coorx" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoory> ;
+    rr:objectMap [ rr:column "coory" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+.
+
+<#NoticiasTriplesMap>
+  rr:logicalTable [ rr:tableName "noticias" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/noticias/{NoticiasPK}" ; rr:class <http://bdovidiana.es/ontology/Noticias> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNoticiaspk> ;
+    rr:objectMap [ rr:column "NoticiasPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasFecha> ;
+    rr:objectMap [ rr:column "Fecha" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasMes> ;
+    rr:objectMap [ rr:column "Mes" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasAnio> ;
+    rr:objectMap [ rr:column "Anio" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTitulo> ;
+    rr:objectMap [ rr:column "Titulo" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTexto> ;
+    rr:objectMap [ rr:column "Texto" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEnlace> ;
+    rr:objectMap [ rr:column "Enlace" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEnlacevideo> ;
+    rr:objectMap [ rr:column "EnlaceVideo" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTextovideo> ;
+    rr:objectMap [ rr:column "TextoVideo" ] ;
+  ] ;
+.
+
+<#ObraTriplesMap>
+  rr:logicalTable [ rr:tableName "obra" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/obra/{ObraPK}" ; rr:class <http://bdovidiana.es/ontology/Obra> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasObrapk> ;
+    rr:objectMap [ rr:column "ObraPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasObralat> ;
+    rr:objectMap [ rr:column "ObraLat" ] ;
+  ] ;
+.
+
+<#ObraedicionTriplesMap>
+  rr:logicalTable [ rr:tableName "obraedicion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/obraedicion/{ObraFK}-{EdicionFK}" ; rr:class <http://bdovidiana.es/ontology/Obraedicion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasObrafk> ;
+    rr:objectMap [ rr:column "ObraFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasEdicionfk> ;
+    rr:objectMap [ rr:column "EdicionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToObra> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ObraTriplesMap> ;
+      rr:joinCondition [ rr:child "ObraFK" ; rr:parent "ObraPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToEdicion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#EdicionTriplesMap> ;
+      rr:joinCondition [ rr:child "EdicionFK" ; rr:parent "EdicionPK" ]
+    ] ;
+  ] ;
+.
+
+<#ProvinciaTriplesMap>
+  rr:logicalTable [ rr:tableName "provincia" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/provincia/{ProvinciaPK}" ; rr:class <http://bdovidiana.es/ontology/Provincia> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasProvinciapk> ;
+    rr:objectMap [ rr:column "ProvinciaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasNombre> ;
+    rr:objectMap [ rr:column "Nombre" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasComunidadfk> ;
+    rr:objectMap [ rr:column "ComunidadFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoord> ;
+    rr:objectMap [ rr:column "coord" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoorx> ;
+    rr:objectMap [ rr:column "coorx" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCoory> ;
+    rr:objectMap [ rr:column "coory" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToComunidad> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#ComunidadTriplesMap> ;
+      rr:joinCondition [ rr:child "ComunidadFK" ; rr:parent "ComunidadPK" ]
+    ] ;
+  ] ;
+.
+
+<#TemaTriplesMap>
+  rr:logicalTable [ rr:tableName "Tema" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/Tema/{TemaPK}" ; rr:class <http://bdovidiana.es/ontology/Tema> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTemapk> ;
+    rr:objectMap [ rr:column "TemaPK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTema> ;
+    rr:objectMap [ rr:column "Tema" ] ;
+  ] ;
+.
+
+<#TemailustracionTriplesMap>
+  rr:logicalTable [ rr:tableName "TemaIlustracion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/TemaIlustracion/{IlustracionFK}-{TemaFK}" ; rr:class <http://bdovidiana.es/ontology/Temailustracion> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasIlustracionfk> ;
+    rr:objectMap [ rr:column "IlustracionFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTemafk> ;
+    rr:objectMap [ rr:column "TemaFK" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasPosicion> ;
+    rr:objectMap [ rr:column "Posicion" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasHandler> ;
+    rr:objectMap [ rr:column "handler" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToIlustracion> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#IlustracionTriplesMap> ;
+      rr:joinCondition [ rr:child "IlustracionFK" ; rr:parent "IlustracionPK" ]
+    ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/refToTema> ;
+    rr:objectMap [
+      rr:parentTriplesMap <#TemaTriplesMap> ;
+      rr:joinCondition [ rr:child "TemaFK" ; rr:parent "TemaPK" ]
+    ] ;
+  ] ;
+.
+
+<#TermcatTriplesMap>
+  rr:logicalTable [ rr:tableName "TERMCAT" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "http://bdovidiana.es/TERMCAT/{ID}" ; rr:class <http://bdovidiana.es/ontology/Termcat> ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasId> ;
+    rr:objectMap [ rr:column "ID" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasTermino> ;
+    rr:objectMap [ rr:column "TERMINO" ] ;
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate <http://bdovidiana.es/ontology/hasCategoria> ;
+    rr:objectMap [ rr:column "CATEGORIA" ] ;
+  ] ;
+.
+
+<#ComentarioilustracionTriplesMap>
+  rr:logicalTable [ rr:tableName "comentarioilustracion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "_:blank_comentarioilustracion" ; rr:class <http://bdovidiana.es/ontology/Comentarioilustracion> ] ;
+.
+
+<#TemailustracionTriplesMap>
+  rr:logicalTable [ rr:tableName "temailustracion" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "_:blank_temailustracion" ; rr:class <http://bdovidiana.es/ontology/Temailustracion> ] ;
+.
+
+<#TemaTriplesMap>
+  rr:logicalTable [ rr:tableName "tema" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "_:blank_tema" ; rr:class <http://bdovidiana.es/ontology/Tema> ] ;
+.
+
+<#TermcatTriplesMap>
+  rr:logicalTable [ rr:tableName "termcat" ; rr:sqlVersion "SQL2008" ];
+  rr:subjectMap [ rr:template "_:blank_termcat" ; rr:class <http://bdovidiana.es/ontology/Termcat> ] ;
+.

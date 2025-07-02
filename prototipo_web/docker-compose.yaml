@@ -1,0 +1,49 @@
+services:
+  virtuoso:
+    build:
+      context: ./data
+      dockerfile: Dockerfile
+    container_name: virtuoso
+    ports:
+      - "8890:8890"
+      - "1111:1111"
+    environment:
+      - DBA_PASSWORD=dba
+    volumes:
+      - ./data:/data
+      - ./rdf:/rdf
+      - ./scripts:/scripts
+    command: >
+      bash -c "
+        echo 'Esperando a que Virtuoso arranque...';
+        /usr/local/virtuoso-opensource/bin/virtuoso-t +foreground &
+        while ! nc -z localhost 1111; do
+          sleep 1;
+        done
+        echo 'Virtuoso disponible. Cargando RDF...';
+        isql-v 1111 dba dba /scripts/load-data.sql &&
+        echo 'RDF cargado correctamente';
+        wait
+      "
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - virtuoso
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - backend

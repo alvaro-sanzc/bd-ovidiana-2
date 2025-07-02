@@ -1,0 +1,552 @@
+{
+  "biblioteca": {
+    "columns": [
+      "BibliotecaPK",
+      "Biblioteca"
+    ],
+    "primary_keys": [
+      "BibliotecaPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ComunidadFK",
+        "references_table": "comunidad",
+        "references_column": "ComunidadPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "caracteristicasedicion": {
+    "columns": [
+      "CaracteristicasEdicionPK",
+      "TextoTraduccion",
+      "Comentario",
+      "Ilustraciones",
+      "EstructuraDisposicion",
+      "EdicionFK"
+    ],
+    "primary_keys": [
+      "CaracteristicasEdicionPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "categorias_id": {
+    "columns": [
+      "ID",
+      "CATEGORIAS",
+      "NADA"
+    ],
+    "primary_keys": [
+      "ID"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "ciudad": {
+    "columns": [
+      "CiudadPK",
+      "Nombre",
+      "ProvinciaFK",
+      "coord"
+    ],
+    "primary_keys": [
+      "CiudadPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ProvinciaFK",
+        "references_table": "provincia",
+        "references_column": "ProvinciaPK",
+        "inferred": true
+      }
+    ],
+    "annotations": {
+      "hierarchy_level": "ciudad"
+    }
+  },
+  "comentariocontenido": {
+    "columns": [
+      "ComentarioContenidoPK",
+      "ComentarioContenido",
+      "ContenidoFK",
+      "EjemplarFK"
+    ],
+    "primary_keys": [
+      "ComentarioContenidoPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EjemplarFK",
+        "references_table": "ejemplar",
+        "references_column": "EjemplarPK"
+      },
+      {
+        "column": "ContenidoFK",
+        "references_table": "contenido",
+        "references_column": "ContenidoPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "ComentarioIlustracion": {
+    "columns": [
+      "ComentarioIlustracionPK",
+      "ComentarioIlustracion",
+      "IlustracionFK"
+    ],
+    "primary_keys": [
+      "ComentarioIlustracionPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "IlustracionFK",
+        "references_table": "ilustracion",
+        "references_column": "IlustracionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "comentariotema": {
+    "columns": [
+      "ComentarioTemaPK",
+      "ComentarioTema",
+      "EjemplarFK",
+      "TemaFK"
+    ],
+    "primary_keys": [
+      "ComentarioTemaPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EjemplarFK",
+        "references_table": "ejemplar",
+        "references_column": "EjemplarPK"
+      },
+      {
+        "column": "TemaFK",
+        "references_table": "Tema",
+        "references_column": "TemaPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "comunidad": {
+    "columns": [
+      "ComunidadPK",
+      "Nombre",
+      "Icono",
+      "IconoIni",
+      "viaf",
+      "coord",
+      "coordLat",
+      "orden"
+    ],
+    "primary_keys": [
+      "ComunidadPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {
+      "hierarchy_level": "comunidad"
+    }
+  },
+  "contenido": {
+    "columns": [
+      "ContenidoPK",
+      "EdicionFK",
+      "Contenido",
+      "Posicion"
+    ],
+    "primary_keys": [
+      "ContenidoPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "edicion": {
+    "columns": [
+      "EdicionPK",
+      "Titulo",
+      "LugarPublicacionFK"
+    ],
+    "primary_keys": [
+      "EdicionPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "FechaFK",
+        "references_table": "fecha",
+        "references_column": "FechaPK"
+      },
+      {
+        "column": "LugarPublicacionFK",
+        "references_table": "lugarpublicacion",
+        "references_column": "LugarPublicacionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "ejemplar": {
+    "columns": [
+      "EjemplarPK",
+      "Codigo",
+      "BibliotecaFK"
+    ],
+    "primary_keys": [
+      "EjemplarPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "BibliotecaFK",
+        "references_table": "biblioteca",
+        "references_column": "BibliotecaPK"
+      },
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "etiqueta": {
+    "columns": [
+      "EtiquetaPK",
+      "TemaFK",
+      "Etiqueta"
+    ],
+    "primary_keys": [
+      "EtiquetaPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "TemaFK",
+        "references_table": "tema",
+        "references_column": "TemaPK",
+        "inferred": true
+      }
+    ],
+    "annotations": {}
+  },
+  "fecha": {
+    "columns": [
+      "FechaPK",
+      "Fecha"
+    ],
+    "primary_keys": [
+      "FechaPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "ilustracion": {
+    "columns": [
+      "IlustracionPK",
+      "Ilustracion",
+      "EdicionFK",
+      "Posicion"
+    ],
+    "primary_keys": [
+      "IlustracionPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "ilustracionejemplar": {
+    "columns": [
+      "IlustracionEjemplarPK",
+      "IlustracionFK",
+      "NombreArchivo"
+    ],
+    "primary_keys": [
+      "IlustracionEjemplarPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "IlustracionFK",
+        "references_table": "ilustracion",
+        "references_column": "IlustracionPK"
+      },
+      {
+        "column": "EjemplarFK",
+        "references_table": "ejemplar",
+        "references_column": "EjemplarPK"
+      }
+    ],
+    "annotations": {}
+  },
+  "ilustrador": {
+    "columns": [
+      "IlustradorPK",
+      "Ilustrador",
+      "URLIlustrador",
+      "viaf",
+      "handler"
+    ],
+    "primary_keys": [
+      "IlustradorPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "ilustradoredicion": {
+    "columns": [
+      "IlustradorFK",
+      "EdicionFK",
+      "handler"
+    ],
+    "primary_keys": [
+      "IlustradorFK",
+      "EdicionFK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      },
+      {
+        "column": "IlustradorFK",
+        "references_table": "ilustrador",
+        "references_column": "IlustradorPK"
+      }
+    ],
+    "annotations": {
+      "composite_pk": true
+    }
+  },
+  "impresor": {
+    "columns": [
+      "ImpresorPK",
+      "Impresor",
+      "URLImpresor",
+      "viaf",
+      "handler"
+    ],
+    "primary_keys": [
+      "ImpresorPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "impresoredicion": {
+    "columns": [
+      "ImpresorFK",
+      "EdicionFK",
+      "handler"
+    ],
+    "primary_keys": [
+      "ImpresorFK",
+      "EdicionFK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      },
+      {
+        "column": "ImpresorFK",
+        "references_table": "impresor",
+        "references_column": "ImpresorPK"
+      }
+    ],
+    "annotations": {
+      "composite_pk": true
+    }
+  },
+  "localizacionciudad": {
+    "columns": [
+      "Ciudad"
+    ],
+    "primary_keys": [],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "lugarpublicacion": {
+    "columns": [
+      "LugarPublicacionPK",
+      "Lugar",
+      "geonames",
+      "coorx",
+      "coory",
+      "handler"
+    ],
+    "primary_keys": [
+      "LugarPublicacionPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "noticias": {
+    "columns": [
+      "NoticiasPK",
+      "Fecha",
+      "Mes",
+      "Anio",
+      "Titulo",
+      "Texto",
+      "Enlace",
+      "EnlaceVideo",
+      "TextoVideo"
+    ],
+    "primary_keys": [
+      "NoticiasPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "obra": {
+    "columns": [
+      "ObraPK",
+      "ObraLat"
+    ],
+    "primary_keys": [
+      "ObraPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "obraedicion": {
+    "columns": [
+      "ObraFK",
+      "EdicionFK",
+      "handler"
+    ],
+    "primary_keys": [
+      "ObraFK",
+      "EdicionFK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ObraFK",
+        "references_table": "obra",
+        "references_column": "ObraPK"
+      },
+      {
+        "column": "EdicionFK",
+        "references_table": "edicion",
+        "references_column": "EdicionPK"
+      }
+    ],
+    "annotations": {
+      "composite_pk": true
+    }
+  },
+  "provincia": {
+    "columns": [
+      "ProvinciaPK",
+      "Nombre",
+      "ComunidadFK",
+      "coord",
+      "coorx",
+      "coory"
+    ],
+    "primary_keys": [
+      "ProvinciaPK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ComunidadFK",
+        "references_table": "comunidad",
+        "references_column": "ComunidadPK",
+        "inferred": true
+      }
+    ],
+    "annotations": {
+      "hierarchy_level": "provincia"
+    }
+  },
+  "Tema": {
+    "columns": [
+      "TemaPK",
+      "Tema"
+    ],
+    "primary_keys": [
+      "TemaPK"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "TemaIlustracion": {
+    "columns": [
+      "IlustracionFK",
+      "TemaFK",
+      "Posicion",
+      "handler"
+    ],
+    "primary_keys": [
+      "IlustracionFK",
+      "TemaFK"
+    ],
+    "foreign_keys": [
+      {
+        "column": "IlustracionFK",
+        "references_table": "ilustracion",
+        "references_column": "IlustracionPK"
+      },
+      {
+        "column": "TemaFK",
+        "references_table": "Tema",
+        "references_column": "TemaPK"
+      }
+    ],
+    "annotations": {
+      "composite_pk": true
+    }
+  },
+  "TERMCAT": {
+    "columns": [
+      "ID",
+      "TERMINO",
+      "CATEGORIA"
+    ],
+    "primary_keys": [
+      "ID"
+    ],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "comentarioilustracion": {
+    "columns": [],
+    "primary_keys": [],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "temailustracion": {
+    "columns": [],
+    "primary_keys": [],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "tema": {
+    "columns": [],
+    "primary_keys": [],
+    "foreign_keys": [],
+    "annotations": {}
+  },
+  "termcat": {
+    "columns": [],
+    "primary_keys": [],
+    "foreign_keys": [],
+    "annotations": {}
+  }
+}

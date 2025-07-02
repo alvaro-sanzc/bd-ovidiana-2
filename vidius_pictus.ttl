@@ -1,0 +1,1288 @@
+@prefix : <http://bdovidiana.es/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://bdovidiana.es/ontology/> .
+
+<http://bdovidiana.es/ontology/> rdf:type owl:Ontology ;
+                                  owl:imports <http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl> ;
+                                  <http://purl.org/dc/elements/1.1/contributor> """Fatima DÃ­ez-Platas
+https://scholar.google.es/citations?user=ffHzVkkAAAAJ&hl=es
+https://www.researchgate.net/profile/Fatima-Diez-Platas"""@es ;
+                                  <http://purl.org/dc/elements/1.1/date> "2022"@en ;
+                                  <http://purl.org/dc/elements/1.1/description> """Esta ontologÃ­a modela la informaciÃ³n con la que se cuenta en la Biblioteca Digital Ovidiana. 
+La Biblioteca Digital Ovidiana es el resultado de una serie de proyectos de investigaciÃ³n del mismo tÃ­tulo, financiados por los Ministerios de Ciencia y TecnologÃ­a, Ciencia e InnovaciÃ³n y EconomÃ­a y Competitividad, que se llevan desarrollando en la Universidad de Santiago de Compostela desde el aÃ±o 2007
+La informaciÃ³n se ha extraido del estudio pormenorizado de los ejemplares de las ediciones  ilustradas de Ovido desde el siglo XV hasta el XIX y que se encuantran custodiados en biblotecas espaÃ±olas, tanto pÃºblicas como privadas.
+En la ontologÃ­a se modelan las distintas entidades, sus atributos y relaciones. 
+Una caracterÃ­stica importante es la integraciÃ³n de una serie de tesauros para representar los valores de determinadas propiedades y que se encuentran en proceso de elaboraciÃ³n.
+La ontologÃ­a se encuentra en desarrollo y estÃ¡ siendo sometida a sucesivos refinamientos."""@es ,
+                                                                                """This ontology models the information available in the Ovidian Digital Library. 
+The Ovidian Digital Library is the result of a series of research projects of the same title, funded by the Ministries of Science and Technology, Science and Innovation, and Economy and Competitiveness, which have been carried out at the University of Santiago de Compostela since 2007.
+The information has been extracted from the detailed study of the copies of the illustrated editions of Ovid from the 15th to the 19th century, which are curated in Spanish libraries, both public and private.
+The ontology models the different entities, their attributes and relationships. 
+An important feature is the integration of a series of thesauri to represent the values of certain properties and which are in the process of being developed.
+The ontology is under development and undergoing successive refinements."""@en ;
+                                  <http://purl.org/dc/elements/1.1/title> "Ontology of the Ovid Digital Library"@en ,
+                                                                          "OntologÃ­a de la Biblioteca Digital Ovidiana"@es ;
+                                  <http://purl.org/dc/terms/creator> """M Luisa DÃ­ez-Platas
+https://orcid.org/0000-0002-9416-3147"""@en ,
+                                                                     "Paloma Centenera Centenera"@en ;
+                                  <http://purl.org/dc/terms/publisher> """Ovid Digital Library Projects. Principal Investigator: FÃ¡tima DÃ­ez-Platas
+
+Phase I (2007- 2010): \"Ovidian digital library: illustrated editions of Ovid, 15th-19th centuries (I): the libraries of Galicia and Catalonia\" (HUM2007- 60265/ARTE)
+Phase II (2011-2012): \"Ovidian digital library: illustrated editions of Ovid, 15th-19th centuries (II): the libraries of Catalonia\" (HAR2010-20015).
+Phase III (2012-2014): \"Ovidian digital library: illustrated editions of Ovid, 15th-19th centuries (III): the libraries of Castilla y LeÃ³n\" (HAR2011-25853).
+Phase IV (2015-2017): \"Ovidian digital library: illustrated editions of Ovid, 15th-19th centuries (IV): the libraries of the Community of Madrid\" (HAR2014-55617-P).
+Phase V (2018-2022): \"Ovidian digital library: illustrated editions of Ovid, 15th-19th centuries (V): the libraries of the Autonomous Communities of Andalusia, Extremadura, the Canary Islands, Ceuta and Melilla\" (HAR2017-86876-P).
+Funded by the Ministerios de Ciencia y TecnologÃ­a, Ciencia e InnovaciÃ³n y EconomÃ­a y Competitividad. Spain."""@en ;
+                                  <http://purl.org/vocab/vann/preferredNamespacePrefix> "bdo"@en ;
+                                  owl:versionInfo "V1.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R10
+<http://iflastandards.info/ns/fr/frbr/frbroo/R10> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P148_has_component> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F1> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R14
+<http://iflastandards.info/ns/fr/frbr/frbroo/R14> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of> ,
+                                                                     <http://www.cidoc-crm.org/cidoc-crm/P148_has_component> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F2> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R15
+<http://iflastandards.info/ns/fr/frbr/frbroo/R15> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F23> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R16
+<http://iflastandards.info/ns/fr/frbr/frbroo/R16> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P94_has_created> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F1> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R17
+<http://iflastandards.info/ns/fr/frbr/frbroo/R17> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P94_has_created> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F2> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R18
+<http://iflastandards.info/ns/fr/frbr/frbroo/R18> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P108_has_produced> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F4> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R19
+<http://iflastandards.info/ns/fr/frbr/frbroo/R19> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F1> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R20
+<http://iflastandards.info/ns/fr/frbr/frbroo/R20> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R25
+<http://iflastandards.info/ns/fr/frbr/frbroo/R25> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F25> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R27
+<http://iflastandards.info/ns/fr/frbr/frbroo/R27> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F24> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R28
+<http://iflastandards.info/ns/fr/frbr/frbroo/R28> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P108_has_produced> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F5> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R29
+<http://iflastandards.info/ns/fr/frbr/frbroo/R29> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R30
+<http://iflastandards.info/ns/fr/frbr/frbroo/R30> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P108_has_produced> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R33
+<http://iflastandards.info/ns/fr/frbr/frbroo/R33> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> ;
+                                                  rdfs:range rdfs:Literal ;
+                                                  rdfs:domain <http://iflastandards.info/ns/fr/frbr/frbroo/F12> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R35
+<http://iflastandards.info/ns/fr/frbr/frbroo/R35> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P148_has_component> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F34> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R43
+<http://iflastandards.info/ns/fr/frbr/frbroo/R43> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F44> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R44
+<http://iflastandards.info/ns/fr/frbr/frbroo/R44> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F44> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R46
+<http://iflastandards.info/ns/fr/frbr/frbroo/R46> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P37_assigned> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F13> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R47
+<http://iflastandards.info/ns/fr/frbr/frbroo/R47> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R49
+<http://iflastandards.info/ns/fr/frbr/frbroo/R49> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P141_assigned> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F3> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R5
+<http://iflastandards.info/ns/fr/frbr/frbroo/R5> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P148_has_component> ;
+                                                 rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F22> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R51
+<http://iflastandards.info/ns/fr/frbr/frbroo/R51> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P141_assigned> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F2> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R52
+<http://iflastandards.info/ns/fr/frbr/frbroo/R52> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F43> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R53
+<http://iflastandards.info/ns/fr/frbr/frbroo/R53> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P141_assigned> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F4> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R56
+<http://iflastandards.info/ns/fr/frbr/frbroo/R56> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P69_has_association_with> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F35> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R64
+<http://iflastandards.info/ns/fr/frbr/frbroo/R64> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P141_assigned> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E41_Appellation> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R7i
+<http://iflastandards.info/ns/fr/frbr/frbroo/R7i> rdf:type owl:AnnotationProperty ;
+                                                  rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P2i_is_type_of> ;
+                                                  rdfs:range <http://iflastandards.info/ns/fr/frbr/frbroo/F5> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/R8
+<http://iflastandards.info/ns/fr/frbr/frbroo/R8> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of> ;
+                                                 rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
+
+
+###  http://metadataregistry.org/uri/profile/regap/name
+<http://metadataregistry.org/uri/profile/regap/name> rdf:type owl:AnnotationProperty .
+
+
+###  http://metadataregistry.org/uri/profile/regap/status
+<http://metadataregistry.org/uri/profile/regap/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:domain :Opus .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty ;
+                                        rdfs:domain :Edition ,
+                                                    :Specimen .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rightsHolder
+<http://purl.org/dc/terms/rightsHolder> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of
+<http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P108_has_produced
+<http://www.cidoc-crm.org/cidoc-crm/P108_has_produced> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P141_assigned
+<http://www.cidoc-crm.org/cidoc-crm/P141_assigned> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P148_has_component
+<http://www.cidoc-crm.org/cidoc-crm/P148_has_component> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by
+<http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by
+<http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object
+<http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P2i_is_type_of
+<http://www.cidoc-crm.org/cidoc-crm/P2i_is_type_of> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique
+<http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P37_assigned
+<http://www.cidoc-crm.org/cidoc-crm/P37_assigned> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+<http://www.cidoc-crm.org/cidoc-crm/P3_has_note> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P69_has_association_with
+<http://www.cidoc-crm.org/cidoc-crm/P69_has_association_with> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P94_has_created
+<http://www.cidoc-crm.org/cidoc-crm/P94_has_created> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+<http://xmlns.com/foaf/0.1/homepage> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/maker
+<http://xmlns.com/foaf/0.1/maker> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://bdovidiana.es/ontology/areRepresentedIn
+:areRepresentedIn rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :representsThemes ;
+                  rdfs:domain :ListOfThemes ;
+                  rdfs:range :Illustration .
+
+
+###  http://bdovidiana.es/ontology/city
+:city rdf:type owl:ObjectProperty ;
+      rdfs:domain :LibraryLocation ;
+      rdfs:range :City .
+
+
+###  http://bdovidiana.es/ontology/community
+:community rdf:type owl:ObjectProperty ;
+           rdfs:domain :LibraryLocation ;
+           rdfs:range :Community .
+
+
+###  http://bdovidiana.es/ontology/contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://purl.org/ontology/olo/core#slot> ;
+          rdfs:domain :Index ;
+          rdfs:range :Section .
+
+
+###  http://bdovidiana.es/ontology/correspondsTo
+:correspondsTo rdf:type owl:ObjectProperty ;
+               rdfs:domain :SpecimenIllustration ;
+               rdfs:range :Illustration .
+
+
+###  http://bdovidiana.es/ontology/geo
+:geo rdf:type owl:ObjectProperty ;
+     rdfs:domain <http://schema.org/Place> ;
+     rdfs:range <http://schema.org/GeoCoordinates> .
+
+
+###  http://bdovidiana.es/ontology/hasEdition
+:hasEdition rdf:type owl:ObjectProperty ;
+            rdfs:domain :Opus ;
+            rdfs:range :Edition .
+
+
+###  http://bdovidiana.es/ontology/hasFeatrures
+:hasFeatrures rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Edition ;
+              rdfs:range :EditionFeatures .
+
+
+###  http://bdovidiana.es/ontology/hasIllustration
+:hasIllustration rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://purl.org/ontology/olo/core#slot> ;
+                 rdfs:domain :ListOfEditionIllustrations ;
+                 rdfs:range :Illustration .
+
+
+###  http://bdovidiana.es/ontology/hasIllustrations
+:hasIllustrations rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Edition ;
+                  rdfs:range :ListOfEditionIllustrations .
+
+
+###  http://bdovidiana.es/ontology/hasIllustrator
+:hasIllustrator rdf:type owl:ObjectProperty ;
+                rdfs:domain :Edition ;
+                rdfs:range :Illustrator .
+
+
+###  http://bdovidiana.es/ontology/hasImpresor
+:hasImpresor rdf:type owl:ObjectProperty ;
+             rdfs:domain :Edition ;
+             rdfs:range :Printer .
+
+
+###  http://bdovidiana.es/ontology/hasIndex
+:hasIndex rdf:type owl:ObjectProperty ;
+          rdfs:domain :Edition ;
+          rdfs:range :Index .
+
+
+###  http://bdovidiana.es/ontology/hasRelatedThemes
+:hasRelatedThemes rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://purl.org/ontology/olo/core#slot> ;
+                  rdfs:domain :ListOfThemes ;
+                  rdfs:range <http://bdovidiana.es/kos/subject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                               owl:hasValue <http://bdovidiana.es/kos/subject>
+                             ] .
+
+
+###  http://bdovidiana.es/ontology/hasSpecimen
+:hasSpecimen rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isSpecimenOf ;
+             rdfs:domain :Edition ;
+             rdfs:range :Specimen .
+
+
+###  http://bdovidiana.es/ontology/hasSpecimenIllustration
+:hasSpecimenIllustration rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :hasIllustrations ;
+                         rdfs:domain :Specimen ;
+                         rdfs:range :ListOfSpecimenIllustrations .
+
+
+###  http://bdovidiana.es/ontology/isEdition
+:isEdition rdf:type owl:ObjectProperty ;
+           rdfs:domain :Edition ;
+           rdfs:range :Opus .
+
+
+###  http://bdovidiana.es/ontology/isIllustratorOf
+:isIllustratorOf rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Illustrator ;
+                 rdfs:range :Edition .
+
+
+###  http://bdovidiana.es/ontology/isInIllustrationList
+:isInIllustrationList rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://purl.org/ontology/olo/core#ordered_list> ;
+                      rdfs:domain :Illustration ;
+                      rdfs:range :ListOfEditionIllustrations .
+
+
+###  http://bdovidiana.es/ontology/isInIndex
+:isInIndex rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://purl.org/ontology/olo/core#ordered_list> ;
+           rdfs:domain :Section ;
+           rdfs:range :Index .
+
+
+###  http://bdovidiana.es/ontology/isInSubjectList
+:isInSubjectList rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://purl.org/ontology/olo/core#ordered_list> ;
+                 rdfs:domain <http://bdovidiana.es/kos/subject> ;
+                 rdfs:range :ListOfThemes .
+
+
+###  http://bdovidiana.es/ontology/isListIllustrationOfSpecimen
+:isListIllustrationOfSpecimen rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf :isListIllustrationsOf ;
+                              rdfs:domain :ListOfSpecimenIllustrations ;
+                              rdfs:range :Specimen .
+
+
+###  http://bdovidiana.es/ontology/isListIllustrationsOf
+:isListIllustrationsOf rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ListOfEditionIllustrations ;
+                       rdfs:range :Edition .
+
+
+###  http://bdovidiana.es/ontology/isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             rdfs:domain :Library ;
+             rdfs:range :LibraryLocation .
+
+
+###  http://bdovidiana.es/ontology/isSpecimenOf
+:isSpecimenOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Specimen ;
+              rdfs:range :Edition .
+
+
+###  http://bdovidiana.es/ontology/locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :Specimen ;
+           rdfs:range :Library .
+
+
+###  http://bdovidiana.es/ontology/province
+:province rdf:type owl:ObjectProperty ;
+          rdfs:domain :LibraryLocation ;
+          rdfs:range :Province .
+
+
+###  http://bdovidiana.es/ontology/publicationDate
+:publicationDate rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Edition ;
+                 rdfs:range :Date .
+
+
+###  http://bdovidiana.es/ontology/publishedIn
+:publishedIn rdf:type owl:ObjectProperty ;
+             rdfs:domain :Edition ;
+             rdfs:range :PublicationPlace .
+
+
+###  http://bdovidiana.es/ontology/representsThemes
+:representsThemes rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Illustration ;
+                  rdfs:range :ListOfThemes ,
+                             :PublicationPlace .
+
+
+###  http://purl.org/ontology/olo/core#ordered_list
+<http://purl.org/ontology/olo/core#ordered_list> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/ontology/olo/core#slot
+<http://purl.org/ontology/olo/core#slot> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://bdovidiana.es/ontology/approximateDateExpression
+:approximateDateExpression rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :dateExpression ;
+                           rdfs:domain :ApproximateDate ;
+                           rdfs:range xsd:string ;
+                           rdfs:label "Approximation of date if not known exactly."@en .
+
+
+###  http://bdovidiana.es/ontology/bibliography
+:bibliography rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Edition ;
+              rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/code
+:code rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/dateExpression
+:dateExpression rdf:type owl:DatatypeProperty .
+
+
+###  http://bdovidiana.es/ontology/descripcionIlustracion
+:descripcionIlustracion rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :EditionFeatures ;
+                        rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/editionCode
+:editionCode rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :code ;
+             rdfs:domain :Edition ;
+             rdfs:range xsd:string ;
+             rdfs:comment """Edition representation code.
+The code consists of the work, followed by the name of the editor/translator/commentator of the work (if it is an annotated or translated edition), then the name of the printer, the place of printing and the date:
+
+ Metamorphosis.Anguillara.Giunta.Venice.1584.
+
+corresponds to the well-known translation of the Metamorphoses by the Italian humanist Giovanni Andrea dell'Anguillara and printed in Venice in 1584 by Bernardo Giunta."""@en ;
+             rdfs:label "CÃ¶digo EdiciÃ³n"@es ,
+                        "Edition Code"@en .
+
+
+###  http://bdovidiana.es/ontology/exactDateExpression
+:exactDateExpression rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :dateExpression ;
+                     rdfs:domain :ExactDate ;
+                     rdfs:range xsd:decimal .
+
+
+###  http://bdovidiana.es/ontology/historial
+:historial rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Specimen ;
+           rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/libraryCode
+:libraryCode rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :code ;
+             rdfs:domain :Library ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Library codes are represented by the acronym of their name. The acronym of the Biblioteca Xeral Universitaria de la Universidad de Santiago is BXU."@en ;
+             rdfs:label "CÃ³digo biblioteca"@es ,
+                        "Library cide"@en .
+
+
+###  http://bdovidiana.es/ontology/locationOfIllustration
+:locationOfIllustration rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Illustration ;
+                        rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/name
+:name rdf:type owl:DatatypeProperty .
+
+
+###  http://bdovidiana.es/ontology/notes
+:notes rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Specimen ;
+       rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/originalTitle
+:originalTitle rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Opus ;
+               rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/physicalDescription
+:physicalDescription rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Specimen ;
+                     rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/references
+:references rdf:type owl:DatatypeProperty .
+
+
+###  http://bdovidiana.es/ontology/sectionCode
+:sectionCode rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :code ;
+             rdfs:domain :Section ;
+             rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/shortCode
+:shortCode rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :code ;
+           rdfs:domain :Edition ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Code that includes the abbreviation of the work, the name of the printer, the abbreviated place and the date (M.Benalius.Ven.[1493]). This abridged version serves to give quick and pertinent information on the purely editorial aspect, leaving aside the information on the edited text."@en ;
+           rdfs:label "CÃ³digo breve"@es ,
+                      "Short code"@en .
+
+
+###  http://bdovidiana.es/ontology/signature
+:signature rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Specimen ;
+           rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/specimenCode
+:specimenCode rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :code ;
+              rdfs:domain :Specimen ;
+              rdfs:range xsd:string ;
+              rdfs:comment """In addition to the edition identification code, the BDO has developed a second library-specific copy identification code. The specimen is each of the actual copies in the libraries.
+The specimen code is composed of the abbreviation of the work, the acronym of the library, the abbreviation of the place of publication, and the date. The acronym of the Biblioteca Xeral Universitaria de la Universidad de Santiago is BXU. Thus, this incunabulum has the code M.BXU.Ven.[1493]."""@en .
+
+
+###  http://bdovidiana.es/ontology/specimenNumber
+:specimenNumber rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Library ;
+                rdfs:range xsd:integer .
+
+
+###  http://bdovidiana.es/ontology/structure
+:structure rdf:type owl:DatatypeProperty ;
+           rdfs:domain :EditionFeatures ;
+           rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/text
+:text rdf:type owl:DatatypeProperty ;
+      rdfs:domain :EditionFeatures ;
+      rdfs:range xsd:string .
+
+
+###  http://bdovidiana.es/ontology/url
+:url rdf:type owl:DatatypeProperty ;
+     rdfs:range xsd:anyURI .
+
+
+###  http://bdovidiana.es/ontology/viafCode
+:viafCode rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :code ;
+          rdfs:range xsd:anyURI .
+
+
+###  http://dbpedia.org/ontology/file
+<http://dbpedia.org/ontology/file> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf :locationOfIllustration ;
+                                   rdfs:domain :SpecimenIllustration ;
+                                   rdfs:range xsd:anyURI ;
+                                   rdfs:comment "File of specimen illustration"@en ;
+                                   rdfs:label "Archivo imagen ilustraciÃ³n"@es ,
+                                              "Specimen illustration file"@en .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/address
+<http://schema.org/address> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <http://schema.org/GeoCoordinates> ;
+                            rdfs:range xsd:string .
+
+
+###  http://schema.org/addressCountry
+<http://schema.org/addressCountry> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <http://schema.org/GeoCoordinates> ;
+                                   rdfs:range xsd:string .
+
+
+###  http://schema.org/latitude
+<http://schema.org/latitude> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <http://schema.org/GeoCoordinates> .
+
+
+###  http://schema.org/longitude
+<http://schema.org/longitude> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/GeoCoordinates> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://bdovidiana.es/kos/subject
+<http://bdovidiana.es/kos/subject> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://purl.org/ontology/olo/core#Slot> ,
+                                                   <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  http://bdovidiana.es/ontology/ApproximateDate
+:ApproximateDate rdf:type owl:Class ;
+                 rdfs:subClassOf :Date .
+
+
+###  http://bdovidiana.es/ontology/Author
+:Author rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/BookSheller
+:BookSheller rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F9> ,
+                      <http://schema.org/Place> .
+
+
+###  http://bdovidiana.es/ontology/Commentator
+:Commentator rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/Community
+:Community rdf:type owl:Class ;
+           rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F9> ,
+                           <http://schema.org/Place> .
+
+
+###  http://bdovidiana.es/ontology/Customer
+:Customer rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/Date
+:Date rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
+
+
+###  http://bdovidiana.es/ontology/Designer
+:Designer rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/Edition
+:Edition rdf:type owl:Class ;
+         rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F3_Manifestation_Product_Type> ;
+         rdfs:comment "Concept that represents a collection of specimens that have common characteristics, such as their format, the list of illustrations and others."@en ;
+         rdfs:label "EdiciÃ³n"@es ,
+                    "Edition"@en .
+
+
+###  http://bdovidiana.es/ontology/EditionFeatures
+:EditionFeatures rdf:type owl:Class .
+
+
+###  http://bdovidiana.es/ontology/Engraver
+:Engraver rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/ExactDate
+:ExactDate rdf:type owl:Class ;
+           rdfs:subClassOf :Date .
+
+
+###  http://bdovidiana.es/ontology/Illustration
+:Illustration rdf:type owl:Class ;
+              rdfs:subClassOf <http://purl.org/ontology/olo/core#Slot> ;
+              rdfs:comment "Illustration that appears in an edition. Contains enumeration, position and thematic description."@en ;
+              rdfs:label "Illustration"@en ,
+                         "IlustraciÃ³n"@es .
+
+
+###  http://bdovidiana.es/ontology/Illustrator
+:Illustrator rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/Index
+:Index rdf:type owl:Class ;
+       rdfs:subClassOf <http://purl.org/ontology/olo/core#OrderedList> .
+
+
+###  http://bdovidiana.es/ontology/Library
+:Library rdf:type owl:Class ;
+         rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F11_Corporate_Body> .
+
+
+###  http://bdovidiana.es/ontology/LibraryLocation
+:LibraryLocation rdf:type owl:Class ;
+                 rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F9> ;
+                 rdfs:comment """Location of the library by specifying the city, province and community to which it belongs. 
+At the moment it is not necessary the pias because all the libraries are located in the Spanish territory."""@en ;
+                 rdfs:label "Library Location"@en ,
+                            "UbicaciÃ³n Biblioteca"@es .
+
+
+###  http://bdovidiana.es/ontology/ListOfEditionIllustrations
+:ListOfEditionIllustrations rdf:type owl:Class ;
+                            rdfs:subClassOf <http://purl.org/ontology/olo/core#OrderedList> .
+
+
+###  http://bdovidiana.es/ontology/ListOfSpecimenIllustrations
+:ListOfSpecimenIllustrations rdf:type owl:Class ;
+                             rdfs:subClassOf :ListOfEditionIllustrations .
+
+
+###  http://bdovidiana.es/ontology/ListOfThemes
+:ListOfThemes rdf:type owl:Class ;
+              rdfs:subClassOf <http://purl.org/ontology/olo/core#OrderedList> .
+
+
+###  http://bdovidiana.es/ontology/Opus
+:Opus rdf:type owl:Class ;
+      rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> ,
+                      <http://www.europeana.eu/schemas/edm/ProvidedCHO> ;
+      rdfs:comment "Cada una de las obras contenidas en el ejemplar"@es .
+
+
+###  http://bdovidiana.es/ontology/Person
+:Person rdf:type owl:Class ;
+        owl:equivalentClass <http://iflastandards.info/ns/fr/frbr/frbroo/F10_Person> ;
+        rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent> .
+
+
+###  http://bdovidiana.es/ontology/Printer
+:Printer rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://bdovidiana.es/ontology/Province
+:Province rdf:type owl:Class ;
+          rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F9> ,
+                          <http://schema.org/Place> .
+
+
+###  http://bdovidiana.es/ontology/PublicationPlace
+:PublicationPlace rdf:type owl:Class ;
+                  rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F9> ,
+                                  <http://schema.org/Place> .
+
+
+###  http://bdovidiana.es/ontology/Section
+:Section rdf:type owl:Class ;
+         rdfs:subClassOf <http://purl.org/ontology/olo/core#Slot> .
+
+
+###  http://bdovidiana.es/ontology/Specimen
+:Specimen rdf:type owl:Class ;
+          rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F5_Item> ;
+          rdfs:comment "Each of the physical manifestations of an edition found in the libraries referenced in the Ovid Digital Library."@en ;
+          rdfs:label "Ejemplar"@es ,
+                     "Specimen"@en .
+
+
+###  http://bdovidiana.es/ontology/SpecimenIllustration
+:SpecimenIllustration rdf:type owl:Class ;
+                      rdfs:subClassOf :Illustration ;
+                      rdfs:comment """Illustration that appears in a specimen. 
+The characteristics and themes of the illustration are already specified in the edition corresponding to the issue. 
+This class reports specifically on aspects found in a specimen, such as possible censorship and others."""@en ;
+                      rdfs:label """Illustration that appears in a specimen. 
+The characteristics and themes of the illustration are already specified in the edition corresponding to the issue. 
+This class reports specifically on aspects found in a copy, such as possible censorship and others."""@en ,
+                                 "Specimen Illustration"@en .
+
+
+###  http://bdovidiana.es/ontology/Translator
+:Translator rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F10_Person
+<http://iflastandards.info/ns/fr/frbr/frbroo/F10_Person> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E21_Person> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F11_Corporate_Body
+<http://iflastandards.info/ns/fr/frbr/frbroo/F11_Corporate_Body> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E74_Group> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F14_Individual_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F14_Individual_Work> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F15_Complex_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F15_Complex_Work> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F16_Container_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F16_Container_Work> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F17_Aggregation_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F17_Aggregation_Work> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F14_Individual_Work> ,
+                                                                                   <http://iflastandards.info/ns/fr/frbr/frbroo/F16_Container_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F18_Serial_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F18_Serial_Work> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F15_Complex_Work> ,
+                                                                              <http://iflastandards.info/ns/fr/frbr/frbroo/F19_Publication_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F19_Publication_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F19_Publication_Work> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F16_Container_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F20_Performance_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F20_Performance_Work> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F16_Container_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F21_Recording_Work
+<http://iflastandards.info/ns/fr/frbr/frbroo/F21_Recording_Work> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F1_Work> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F22_Self-Contained_Expression
+<http://iflastandards.info/ns/fr/frbr/frbroo/F22_Self-Contained_Expression> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F2_Expression> ;
+                                                                            rdfs:comment """This class comprises the immaterial realisations of individual works at a particular time that are regarded as a complete whole. The quality of wholeness reflects the intention of its creator that this expression should convey the concept of the work. Such a whole can in turn be part of a larger whole.
+Inherent to the notion of work is the completion of recognisable outcomes of the work. These outcomes, i.e. the Self-Contained Expressions, are regarded as the symbolic equivalents of Individual Works, which form the atoms of a complex work. A Self-Contained Expression may contain expressions or parts of expressions from other work, such as citations or items collected in anthologies. Even though they are incorporated in the Self-Contained Expression, they are not regarded as becoming members of the expressed container work by their inclusion in the expression, but are rather regarded as foreign or referred to elements.
+F22 Self-Contained Expression can be distinguished from F23 Expression Fragment in that an F23 Expression Fragment was not intended by its creator to make sense by itself. Normally creators would characterise an outcome of a work as finished. In other cases, one could recognise an outcome of a work as complete from the elaboration or logical coherence of its content, or if there is any historical knowledge about the creator deliberately or accidentally never finishing (completing) that particular expression. In all those cases, one would regard an expression as self-contained.
+"""@en ;
+                                                                            rdfs:label "Self-Contained Expression"@en .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F23_Expression_Fragment
+<http://iflastandards.info/ns/fr/frbr/frbroo/F23_Expression_Fragment> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F2_Expression> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F24_Publication_Expression
+<http://iflastandards.info/ns/fr/frbr/frbroo/F24_Publication_Expression> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F22_Self-Contained_Expression> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F26_Recording
+<http://iflastandards.info/ns/fr/frbr/frbroo/F26_Recording> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F22_Self-Contained_Expression> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F27_Work_Conception
+<http://iflastandards.info/ns/fr/frbr/frbroo/F27_Work_Conception> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E65_Creation> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F2_Expression
+<http://iflastandards.info/ns/fr/frbr/frbroo/F2_Expression> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F38_Character
+<http://iflastandards.info/ns/fr/frbr/frbroo/F38_Character> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E28_Conceptual_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F39_Family
+<http://iflastandards.info/ns/fr/frbr/frbroo/F39_Family> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E74_Group> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F3_Manifestation_Product_Type
+<http://iflastandards.info/ns/fr/frbr/frbroo/F3_Manifestation_Product_Type> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E55_Type> ,
+                                                                                            <http://www.cidoc-crm.org/cidoc-crm/E72_Legal_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F40_Identifier_Assignment
+<http://iflastandards.info/ns/fr/frbr/frbroo/F40_Identifier_Assignment> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E15_Identifier_Assignment> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F4_Manifestation_Singleton
+<http://iflastandards.info/ns/fr/frbr/frbroo/F4_Manifestation_Singleton> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Man-Made_Thing> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F54_Utilized_Information_Carrier
+<http://iflastandards.info/ns/fr/frbr/frbroo/F54_Utilized_Information_Carrier> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier> ;
+                                                                               rdfs:comment """This class comprises physical objects that carry one or more instances of F24 Publication Expression.
+"""@en ;
+                                                                               rdfs:label "Utilized Information Carrier"@en .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F5_Item
+<http://iflastandards.info/ns/fr/frbr/frbroo/F5_Item> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://iflastandards.info/ns/fr/frbr/frbroo/F54_Utilized_Information_Carrier> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F6_Concept
+<http://iflastandards.info/ns/fr/frbr/frbroo/F6_Concept> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E28_Conceptual_Object> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F8_Event
+<http://iflastandards.info/ns/fr/frbr/frbroo/F8_Event> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E4_Period> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F9
+<http://iflastandards.info/ns/fr/frbr/frbroo/F9> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+
+
+###  http://iflastandards.info/ns/fr/frbr/frbroo/F9_Place
+<http://iflastandards.info/ns/fr/frbr/frbroo/F9_Place> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+
+
+###  http://purl.org/ontology/olo/core#OrderedList
+<http://purl.org/ontology/olo/core#OrderedList> rdf:type owl:Class .
+
+
+###  http://purl.org/ontology/olo/core#Slot
+<http://purl.org/ontology/olo/core#Slot> rdf:type owl:Class .
+
+
+###  http://schema.org/GeoCoordinates
+<http://schema.org/GeoCoordinates> rdf:type owl:Class .
+
+
+###  http://schema.org/Place
+<http://schema.org/Place> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E15_Identifier_Assignment
+<http://www.cidoc-crm.org/cidoc-crm/E15_Identifier_Assignment> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity
+<http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E21_Person
+<http://www.cidoc-crm.org/cidoc-crm/E21_Person> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Man-Made_Thing
+<http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Man-Made_Thing> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E28_Conceptual_Object
+<http://www.cidoc-crm.org/cidoc-crm/E28_Conceptual_Object> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity
+<http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E39_Actor
+<http://www.cidoc-crm.org/cidoc-crm/E39_Actor> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E4_Period
+<http://www.cidoc-crm.org/cidoc-crm/E4_Period> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span
+<http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> rdf:type owl:Class ;
+                                                   rdfs:comment """This class comprises abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration.
+
+Time Span has no other semantic connotations. Time-Spans are used to define the temporal extent of instances of E4 Period, E5 Event and any other phenomena valid for a certain time. An E52 Time-Span may be identified by one or more instances of E49 Time Appellation.
+
+Since our knowledge of history is imperfect, instances of E52 Time-Span can best be considered as approximations of the actual Time-Spans of temporal entities. The properties of E52 Time-Span are intended to allow these approximations to be expressed precisely. An extreme case of approximation, might, for example, define an E52 Time-Span having unknown beginning, end and duration. Used as a common E52 Time-Span for two events, it would nevertheless define them as being simultaneous, even if nothing else was known.
+
+Automatic processing and querying of instances of E52 Time-Span is facilitated if data can be parsed into an E61 Time Primitive.
+
+1961
+From 12-17-1993 to 12-8-1996
+14h30 â€“ 16h22 4th July 1945
+9.30 am 1.1.1999 to 2.00 pm 1.1.1999
+duration of the Ming Dynasty"""@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
+<http://www.cidoc-crm.org/cidoc-crm/E53_Place> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E54_Dimension
+<http://www.cidoc-crm.org/cidoc-crm/E54_Dimension> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E55_Type
+<http://www.cidoc-crm.org/cidoc-crm/E55_Type> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E56_Language
+<http://www.cidoc-crm.org/cidoc-crm/E56_Language> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E57_Material
+<http://www.cidoc-crm.org/cidoc-crm/E57_Material> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E65_Creation
+<http://www.cidoc-crm.org/cidoc-crm/E65_Creation> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E72_Legal_Object
+<http://www.cidoc-crm.org/cidoc-crm/E72_Legal_Object> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object
+<http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E74_Group
+<http://www.cidoc-crm.org/cidoc-crm/E74_Group> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier
+<http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object
+<http://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object> rdf:type owl:Class .
+
+
+###  http://www.europeana.eu/schemas/edm/ProvidedCHO
+<http://www.europeana.eu/schemas/edm/ProvidedCHO> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://bdovidiana.es/kos/character
+<http://bdovidiana.es/kos/character> rdf:type owl:NamedIndividual ,
+                                              <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://bdovidiana.es/kos/keyElement
+<http://bdovidiana.es/kos/keyElement> rdf:type owl:NamedIndividual ,
+                                               <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://bdovidiana.es/kos/narrativeMode
+<http://bdovidiana.es/kos/narrativeMode> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://bdovidiana.es/kos/ovidianFeatures
+<http://bdovidiana.es/kos/ovidianFeatures> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://bdovidiana.es/kos/pictorialStrategy
+<http://bdovidiana.es/kos/pictorialStrategy> rdf:type owl:NamedIndividual ,
+                                                      <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://bdovidiana.es/kos/subject
+<http://bdovidiana.es/kos/subject> rdf:type owl:NamedIndividual ,
+                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://bdovidiana.es/kos/subject> rdfs:comment "Theme represented in the illustration"@en ;
+                                   rdfs:label "Subject"@en ,
+                                              "Tema"@es .
+
+
+<http://iflastandards.info/ns/fr/frbr/frbroo/> <http://purl.org/dc/elements/1.1/title> "FRBRoo model"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#note> "Element set of the Functional Requirements for Bibliographic Records object-oriented extension to the the CIDOC Conceptual Reference Model (CRM)"@en .
+
+
+<http://purl.org/dc/elements/1.1/title> rdfs:comment "Title of the edition or specimen"@es ;
+                                        rdfs:label "Title"@en ,
+                                                   "TÃ­tulo"@es .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
