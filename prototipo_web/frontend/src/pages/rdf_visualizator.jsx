@@ -6,7 +6,7 @@ export default function Visualizator() {
   const networkRef = useRef(null);
 
   useEffect(() => {
-    console.log('✅ Visualizator montado');
+    console.log(' Visualizator montado');
 
     const nodes = [
       { id: 1, label: 'Ilustración' },

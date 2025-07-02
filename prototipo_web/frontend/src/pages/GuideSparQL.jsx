@@ -47,7 +47,7 @@ const GuideSection = () => {
         <li>Útil para analizar ilustraciones derivadas de un contenido concreto.</li>
       </ul>
       <p className="text-sm mt-6">
-        📘 Más información en la especificación oficial de SPARQL:&nbsp;
+        Más información en la especificación oficial de SPARQL:&nbsp;
         <a
           href="https://www.w3.org/TR/rdf-sparql-query/"
           className="text-blue-600 hover:underline"
